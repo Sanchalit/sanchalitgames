@@ -3,37 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sanchalit Games | Your Next Adventure Awaits</title>
-    <!-- SEO Improvements -->
-    <meta name="description" content="Sanchalit Games offers a curated collection of high-quality, action-packed games. Dive into our featured title, Turbo GP, and discover your next great adventure.">
-    <meta name="keywords" content="sanchalit games, online games, free games, play games, turbo gp, racing game, action games, web games, indie games, online gaming">
+    <title>Sanchalit Games | Play Free Online Games - Turbo GP & More Adventures</title>
+    <!-- Enhanced SEO Meta Tags -->
+    <meta name="description" content="Sanchalit Games offers free online games including action-packed racing like Turbo GP. Play high-quality indie web games and discover exciting adventures today.">
+    <meta name="keywords" content="sanchalit games, free online games, play games online, turbo gp, racing games, action games, indie games, web games, online gaming, adventure games">
     <meta name="author" content="Sanchalit Games">
+    <meta name="robots" content="index, follow">
     
-    <!-- Open Graph (for social media sharing) -->
-    <meta property="og:title" content="Sanchalit Games">
-    <meta property="og:description" content="Discover your next great adventure with Sanchalit Games! Play Turbo GP and other action-packed titles for free.">
+    <!-- Open Graph for Better Social Sharing -->
+    <meta property="og:title" content="Sanchalit Games - Free Online Games & Adventures">
+    <meta property="og:description" content="Play Turbo GP and other thrilling free games at Sanchalit Games. Dive into action-packed racing and indie adventures now!">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.yourwebsite.com/">
+    <meta property="og:url" content="https://www.sanchalitgames.com/">
+    <meta property="og:image" content="https://www.sanchalitgames.com/images/turbo-gp-og.jpg">
+    <meta property="og:site_name" content="Sanchalit Games">
     
-    <!-- Use a new, futuristic font: Rajdhani -->
+    <!-- Twitter Card for Enhanced Sharing -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sanchalit Games - Free Online Games & Adventures">
+    <meta name="twitter:description" content="Play Turbo GP and other thrilling free games at Sanchalit Games. Dive into action-packed racing and indie adventures now!">
+    <meta name="twitter:image" content="https://www.sanchalitgames.com/images/turbo-gp-twitter.jpg">
+    
+    <!-- Favicon for Better Branding -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    
+    <!-- Preload Fonts for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+    
     <!-- Include Tailwind CSS from CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <style>
-        /* Custom styles for the scrollbar to make it more visually appealing */
         ::-webkit-scrollbar {
             width: 8px;
         }
-
         ::-webkit-scrollbar-track {
             background: #1a1a2e;
         }
-
         ::-webkit-scrollbar-thumb {
             background: #e94560;
             border-radius: 4px;
         }
-
         ::-webkit-scrollbar-thumb:hover {
             background: #e21c3b;
         }
@@ -41,11 +54,16 @@
         body {
             font-family: 'Rajdhani', sans-serif;
             color: #f0f4f8;
-            background: #16213e; /* Fallback color */
-            overflow-x: hidden; /* Prevents horizontal scroll from background animation */
+            background: #16213e;
+            overflow-x: hidden;
+            margin: 0;
         }
         
-        /* A more advanced and dynamic background animation using a pseudo-element */
+        :root {
+            --bg-color-primary: rgba(15, 52, 96, 0.4);
+            --accent-color: #e94560;
+        }
+        
         body::before {
             content: '';
             position: fixed;
@@ -55,23 +73,10 @@
             height: 100%;
             background: 
                 radial-gradient(ellipse at bottom, #0d1a3c, transparent 80%),
-                linear-gradient(rgba(15, 52, 96, 0.4), rgba(15, 52, 96, 0.4)),
-                repeating-linear-gradient(
-                    0deg,
-                    transparent,
-                    transparent 1px,
-                    rgba(255, 255, 255, 0.05) 1px,
-                    rgba(255, 255, 255, 0.05) 2px
-                ),
-                repeating-linear-gradient(
-                    90deg,
-                    transparent,
-                    transparent 1px,
-                    rgba(255, 255, 255, 0.05) 1px,
-                    rgba(255, 255, 255, 0.05) 2px
-                );
+                linear-gradient(var(--bg-color-primary), var(--bg-color-primary)),
+                repeating-linear-gradient(0deg, transparent 0 1px, rgba(255, 255, 255, 0.05) 1px 2px),
+                repeating-linear-gradient(90deg, transparent 0 1px, rgba(255, 255, 255, 0.05) 1px 2px);
             z-index: -1;
-            /* New animation for parallax effect on scroll */
             background-attachment: fixed;
             animation: move-bg 60s linear infinite;
         }
@@ -81,10 +86,9 @@
             100% { background-position: -200px -200px; }
         }
         
-        /* --- General Animations --- */
-        /* Using transform and opacity for smooth, high-performance animations */
         .fade-in-text {
             animation: fadeIn 1s ease-out forwards;
+            will-change: opacity, transform;
         }
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
@@ -93,6 +97,7 @@
         
         .animate-slide-in-down {
             animation: slideInDown 0.7s ease-out forwards;
+            will-change: opacity, transform;
         }
         @keyframes slideInDown {
             from { transform: translateY(-100%); opacity: 0; }
@@ -117,25 +122,25 @@
         
         .hover-lift:hover {
             animation: lift 0.3s ease-in-out forwards;
+            will-change: transform;
         }
         @keyframes lift {
             0% { transform: translateY(0); }
             100% { transform: translateY(-5px); }
         }
 
-        /* New staggered animation for hero buttons container */
         .stagger-in {
             animation: fadeIn 0.8s ease-out 0.8s forwards;
             opacity: 0;
             display: flex;
+            will-change: opacity, transform;
         }
 
-        /* --- Scrolling Animations --- */
         .animate-on-scroll {
             opacity: 0;
             transform: translateY(50px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-            transition-delay: 0.2s;
+            transition: opacity 0.6s ease-out 0.2s, transform 0.6s ease-out 0.2s;
+            will-change: opacity, transform;
         }
         .animate-on-scroll.is-visible {
             opacity: 1;
@@ -144,13 +149,13 @@
 
         .pulse-background {
             animation: pulse-bg 8s infinite cubic-bezier(0.4, 0, 0.6, 1);
+            will-change: background-color;
         }
         @keyframes pulse-bg {
             0%, 100% { background-color: #2a2f44; }
             50% { background-color: #2e354a; }
         }
         
-        /* Navigation link hover animation */
         .nav-link-hover {
             position: relative;
             display: inline-block;
@@ -163,7 +168,7 @@
             height: 2px;
             bottom: -5px;
             left: 0;
-            background-color: #e94560;
+            background-color: var(--accent-color);
             transform-origin: bottom right;
             transition: transform 0.25s ease-out;
         }
@@ -172,7 +177,6 @@
             transform-origin: bottom left;
         }
 
-        /* --- Mobile-specific styles for the menu --- */
         #mobile-menu {
             transition: transform 0.3s ease-in-out;
             transform: translateX(100%);
@@ -181,7 +185,6 @@
             transform: translateX(0);
         }
 
-        /* Hero Particles Canvas */
         #hero-canvas {
             position: absolute;
             top: 0;
@@ -193,11 +196,10 @@
             opacity: 0.2;
         }
 
-        /* Cursor Trail Effect */
         .cursor-dot {
             width: 6px;
             height: 6px;
-            background-color: #e94560;
+            background-color: var(--accent-color);
             border-radius: 50%;
             pointer-events: none;
             position: fixed;
@@ -206,6 +208,7 @@
             z-index: 9999;
             transform: translate(-50%, -50%);
             transition: transform 0.2s ease-out;
+            will-change: transform;
         }
 
         .cursor-outline {
@@ -220,32 +223,35 @@
             z-index: 9999;
             transform: translate(-50%, -50%);
             transition: transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+            will-change: transform;
         }
 
+        @media (max-width: 768px) {
+            .cursor-dot, .cursor-outline {
+                display: none;
+            }
+            #hero-canvas {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body class="antialiased">
-
-    <!-- Cursor Trail Elements -->
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
 
-    <!-- Header Section -->
-    <header class="bg-[#1a1a2e] bg-opacity-70 backdrop-blur-sm sticky top-0 z-50 shadow-lg animate-slide-in-down">
+    <header class="bg-[#1a1a2e] bg-opacity-70 backdrop-blur-sm sticky top-0 z-50 shadow-lg animate-slide-in-down" aria-label="Main Navigation">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <!-- Website Logo/Title -->
-            <a href="#" class="text-3xl font-bold text-[#e94560] tracking-wide hover-pulse-logo">
+            <a href="#" class="text-3xl font-bold text-[#e94560] tracking-wide hover-pulse-logo" aria-label="Sanchalit Games Home">
                 Sanchalit<span class="text-white">Games</span>
             </a>
-            <!-- Navigation Links (for larger screens) -->
             <div class="hidden md:flex space-x-8 text-lg">
                 <a href="#" class="nav-link-hover text-white hover:text-[#e94560] transition-colors duration-300">Home</a>
-                <a href="#" class="nav-link-hover text-white hover:text-[#e94560] transition-colors duration-300">Games</a>
-                <a href="#" class="nav-link-hover text-white hover:text-[#e94560] transition-colors duration-300">About</a>
+                <a href="#featured-games" class="nav-link-hover text-white hover:text-[#e94560] transition-colors duration-300">Games</a>
+                <a href="#about" class="nav-link-hover text-white hover:text-[#e94560] transition-colors duration-300">About</a>
                 <a href="#contact" class="nav-link-hover text-white hover:text-[#e94560] transition-colors duration-300">Contact</a>
             </div>
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none" aria-label="Toggle Mobile Menu">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                     <path id="close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
@@ -254,10 +260,9 @@
         </nav>
     </header>
 
-    <!-- Mobile Menu Drawer -->
-    <div id="mobile-menu" class="fixed top-0 right-0 h-full w-64 bg-[#1a1a2e] bg-opacity-95 backdrop-blur-sm z-40 shadow-xl p-6 md:hidden">
+    <div id="mobile-menu" class="fixed top-0 right-0 h-full w-64 bg-[#1a1a2e] bg-opacity-95 backdrop-blur-sm z-40 shadow-xl p-6 md:hidden" aria-hidden="true">
         <div class="flex justify-end mb-8">
-            <button id="close-mobile-menu-button" class="text-white focus:outline-none">
+            <button id="close-mobile-menu-button" class="text-white focus:outline-none" aria-label="Close Mobile Menu">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
@@ -265,134 +270,123 @@
         </div>
         <nav class="flex flex-col space-y-6 text-xl">
             <a href="#" class="text-white hover:text-[#e94560] transition-colors duration-300">Home</a>
-            <a href="#" class="text-white hover:text-[#e94560] transition-colors duration-300">Games</a>
-            <a href="#" class="text-white hover:text-[#e94560] transition-colors duration-300">About</a>
+            <a href="#featured-games" class="text-white hover:text-[#e94560] transition-colors duration-300">Games</a>
+            <a href="#about" class="text-white hover:text-[#e94560] transition-colors duration-300">About</a>
             <a href="#contact" class="text-white hover:text-[#e94560] transition-colors duration-300">Contact</a>
         </nav>
     </div>
 
-    <!-- Hero Section -->
-    <main class="relative min-h-screen flex flex-col items-center justify-center text-center p-6 pt-24 overflow-hidden">
-        <canvas id="hero-canvas"></canvas>
+    <main class="relative min-h-screen flex flex-col items-center justify-center text-center p-6 pt-24 overflow-hidden" role="banner">
+        <canvas id="hero-canvas" aria-hidden="true"></canvas>
         <div class="relative z-10 max-w-4xl space-y-6">
             <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight fade-in-text">
-                Discover Your Next <br class="hidden sm:inline"> Great Adventure
+                Play Free Online Games: <br class="hidden sm:inline"> Discover Thrilling Adventures
             </h1>
             <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto animate-on-scroll">
-                Dive into a world of endless excitement. Sanchalit Games brings you a curated collection of action-packed, story-driven, and mind-bending games.
+                Explore Sanchalit Games for free online games like Turbo GP. Enjoy action-packed racing, indie adventures, and more web-based fun.
             </p>
-            <!-- Fixed the animation issue by applying stagger to the container -->
             <div id="hero-buttons-container" class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 pt-4 stagger-in">
-                <!-- Added IDs for easier JavaScript handling -->
-                <a id="explore-games-btn" href="#" class="bg-[#e94560] hover:bg-[#e21c3b] text-white font-bold py-3 px-8 rounded-full shadow-lg transform transition-transform duration-300 hover:scale-105 hover-shadow-pop">
+                <a id="explore-games-btn" href="#featured-games" class="bg-[#e94560] hover:bg-[#e21c3b] text-white font-bold py-3 px-8 rounded-full shadow-lg transform transition-transform duration-300 hover:scale-105 hover-shadow-pop" aria-label="Explore Free Games">
                     Explore Games
                 </a>
-                <a id="learn-more-btn" href="#" class="bg-transparent hover:bg-gray-700 text-white font-bold py-3 px-8 rounded-full border border-gray-400 transform transition-transform duration-300 hover:scale-105 hover-shadow-pop">
+                <a id="learn-more-btn" href="#about" class="bg-transparent hover:bg-gray-700 text-white font-bold py-3 px-8 rounded-full border border-gray-400 transform transition-transform duration-300 hover:scale-105 hover-shadow-pop" aria-label="Learn More About Sanchalit Games">
                     Learn More
                 </a>
             </div>
         </div>
     </main>
 
-    <!-- Featured Games Section -->
     <section id="featured-games" class="bg-[#1a1a2e] bg-opacity-80 backdrop-blur-sm py-20 animate-on-scroll pulse-background">
         <div class="container mx-auto px-6 flex justify-center">
             <div class="max-w-4xl w-full bg-[#2a2f44] rounded-2xl shadow-xl overflow-hidden md:flex transform transition-all duration-300 hover-lift hover:scale-105">
-                <!-- Game Image has been removed, replaced with a text-based visual -->
                 <div class="md:w-1/2 bg-gray-700 flex items-center justify-center p-8">
                     <h2 class="text-5xl font-extrabold text-white tracking-widest">
                         Turbo GP
                     </h2>
                 </div>
-                <!-- Game Content -->
                 <div class="md:w-1/2 p-8 flex flex-col justify-center">
                     <span class="bg-[#e94560] text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide inline-block mb-4">
                         Featured Game
                     </span>
-                    <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-4">Turbo GP</h2>
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-4">Turbo GP: Free Racing Game</h2>
                     <p class="text-gray-300 mb-6 text-lg">
-                        Get ready for the ultimate racing experience! Turbo GP combines high-speed action with stunning visuals and fully customizable cars. Burn rubber and conquer the track.
+                        Experience high-speed free online racing in Turbo GP. Customize cars, conquer dynamic tracks, and enjoy indie gaming action at Sanchalit Games.
                     </p>
                     <ul class="list-none space-y-2 mb-6 text-gray-400">
                         <li class="flex items-center space-x-2">
-                            <svg class="w-5 h-5 text-[#e94560]" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" fill-rule="evenodd"></path></svg>
+                            <svg class="w-5 h-5 text-[#e94560]" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" fill-rule="evenodd"></path></svg>
                             <span>High-Speed Racing</span>
                         </li>
                         <li class="flex items-center space-x-2">
-                            <svg class="w-5 h-5 text-[#e94560]" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" fill-rule="evenodd"></path></svg>
+                            <svg class="w-5 h-5 text-[#e94560]" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" fill-rule="evenodd"></path></svg>
                             <span>Customizable Cars</span>
                         </li>
                         <li class="flex items-center space-x-2">
-                            <svg class="w-5 h-5 text-[#e94560]" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" fill-rule="evenodd"></path></svg>
+                            <svg class="w-5 h-5 text-[#e94560]" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" fill-rule="evenodd"></path></svg>
                             <span>Dynamic Tracks</span>
                         </li>
                     </ul>
-                    <a href="./turbogp/" class="bg-[#e94560] hover:bg-[#e21c3b] text-white font-bold py-3 px-8 rounded-full shadow-lg transform transition-transform duration-300 hover:scale-105 hover-shadow-pop inline-block text-center">
+                    <a href="./turbogp/" class="bg-[#e94560] hover:bg-[#e21c3b] text-white font-bold py-3 px-8 rounded-full shadow-lg transform transition-transform duration-300 hover:scale-105 hover-shadow-pop inline-block text-center" aria-label="Play Turbo GP Free Online">
                         Play Turbo GP
                     </a>
                 </div>
             </div>
+        </section>
+
+    <section id="about" class="bg-[#1a1a2e] bg-opacity-80 backdrop-blur-sm py-20 animate-on-scroll pulse-background">
+        <div class="container mx-auto px-6 text-center max-w-4xl">
+            <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-4">About Sanchalit Games</h2>
+            <p class="text-gray-300 text-lg mb-8">
+                Sanchalit Games is your go-to destination for free online games. We specialize in indie web games like Turbo GP, offering action, racing, and adventure experiences. Our mission is to provide high-quality, accessible gaming for everyone.
+            </p>
         </div>
     </section>
 
-    <!-- Contact Us Section -->
     <section id="contact" class="bg-[#2a2f44] py-20 px-6 animate-on-scroll pulse-background">
         <div class="container mx-auto text-center max-w-4xl">
-            <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-4">Contact Us</h2>
+            <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-4">Contact Sanchalit Games</h2>
             <p class="text-gray-300 text-lg mb-8">
-                Your feedback helps us make our games even better! If you have any suggestions, comments, or just want to say hi, feel free to email us.
+                Share your feedback on our free online games or suggest new ideas. Email us for support on Turbo GP or other titles.
             </p>
-            <a href="mailto:sanchalithelp@gmail.com" class="inline-block bg-[#e94560] hover:bg-[#e21c3b] text-white font-bold py-3 px-8 rounded-full shadow-lg transform transition-transform duration-300 hover:scale-105 hover-shadow-pop">
+            <a href="mailto:sanchalithelp@gmail.com" class="inline-block bg-[#e94560] hover:bg-[#e21c3b] text-white font-bold py-3 px-8 rounded-full shadow-lg transform transition-transform duration-300 hover:scale-105 hover-shadow-pop" aria-label="Email Sanchalit Games Support">
                 Email us at sanchalithelp@gmail.com
             </a>
         </div>
     </section>
 
-    <!-- Footer Section -->
     <footer class="bg-[#16213e] py-8 text-center text-gray-500 text-sm">
         <div class="container mx-auto px-6">
             <p>&copy; 2024 Sanchalit Games. All rights reserved.</p>
+            <nav class="mt-4 space-x-4">
+                <a href="#" class="hover:text-white">Privacy Policy</a>
+                <a href="#" class="hover:text-white">Terms of Service</a>
+            </nav>
         </div>
     </footer>
 
-    <!-- JavaScript for animations and performance optimization -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Smoothly scrolls to a target element
             const smoothScrollTo = (targetId) => {
-                const targetElement = document.getElementById(targetId);
-                if (targetElement) {
+                const target = document.getElementById(targetId);
+                if (target) {
                     window.scrollTo({
-                        top: targetElement.offsetTop,
+                        top: target.offsetTop,
                         behavior: 'smooth'
                     });
                 }
             };
-            
-            // IntersectionObserver for scrolling animations (High-performance)
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.1
-            };
 
-            const observer = new IntersectionObserver((entries, observer) => {
+            const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('is-visible');
                         observer.unobserve(entry.target);
                     }
                 });
-            }, observerOptions);
+            }, { rootMargin: '0px', threshold: 0.1 });
 
-            // Refactored to animate the container, not individual buttons
-            const elementsToAnimate = document.querySelectorAll('.animate-on-scroll, #hero-buttons-container');
-            
-            elementsToAnimate.forEach(element => {
-                observer.observe(element);
-            });
+            document.querySelectorAll('.animate-on-scroll, #hero-buttons-container').forEach(el => observer.observe(el));
 
-            // Mobile Menu functionality
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
             const closeMobileMenuButton = document.getElementById('close-mobile-menu-button');
@@ -400,133 +394,112 @@
             const closeIcon = document.getElementById('close-icon');
 
             const toggleMenu = () => {
-                mobileMenu.classList.toggle('active');
+                const isActive = mobileMenu.classList.toggle('active');
                 menuIcon.classList.toggle('hidden');
                 closeIcon.classList.toggle('hidden');
+                mobileMenu.setAttribute('aria-hidden', !isActive);
             };
 
             mobileMenuButton.addEventListener('click', toggleMenu);
             closeMobileMenuButton.addEventListener('click', toggleMenu);
+            mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', toggleMenu));
 
-            // Close menu when a link is clicked
-            mobileMenu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.remove('active');
-                    menuIcon.classList.remove('hidden');
-                    closeIcon.classList.add('hidden');
-                });
-            });
-            
-            // Fix for the disappearing buttons issue
-            const exploreGamesBtn = document.getElementById('explore-games-btn');
-            exploreGamesBtn.addEventListener('click', (e) => {
-                e.preventDefault(); // Prevents the default jump behavior
+            document.getElementById('explore-games-btn').addEventListener('click', (e) => {
+                e.preventDefault();
                 smoothScrollTo('featured-games');
             });
-            
-            const learnMoreBtn = document.getElementById('learn-more-btn');
-            learnMoreBtn.addEventListener('click', (e) => {
-                e.preventDefault(); // Prevents the default jump behavior
-                // For a placeholder, we just prevent the default
+
+            document.getElementById('learn-more-btn').addEventListener('click', (e) => {
+                e.preventDefault();
+                smoothScrollTo('about');
             });
 
-            // Performance and smooth animations using requestAnimationFrame
-            const cursorDot = document.querySelector('.cursor-dot');
-            const cursorOutline = document.querySelector('.cursor-outline');
-            let mouseX = 0, mouseY = 0, dotX = 0, dotY = 0, outlineX = 0, outlineY = 0;
+            if (window.matchMedia('(min-width: 769px)').matches) {
+                const cursorDot = document.querySelector('.cursor-dot');
+                const cursorOutline = document.querySelector('.cursor-outline');
+                let mouseX = 0, mouseY = 0, dotX = 0, dotY = 0, outlineX = 0, outlineY = 0;
 
-            const animateCursor = () => {
-                const speed = 0.2;
-                const outlineSpeed = 0.1;
-                
-                // Calculate new position using interpolation for smooth movement
-                dotX += (mouseX - dotX) * speed;
-                dotY += (mouseY - dotY) * speed;
-                
-                outlineX += (mouseX - outlineX) * outlineSpeed;
-                outlineY += (mouseY - outlineY) * outlineSpeed;
+                const animateCursor = () => {
+                    dotX += (mouseX - dotX) * 0.2;
+                    dotY += (mouseY - dotY) * 0.2;
+                    outlineX += (mouseX - outlineX) * 0.1;
+                    outlineY += (mouseY - outlineY) * 0.1;
 
-                // Use transform for smooth, non-janky animation
-                cursorDot.style.transform = `translate(${dotX}px, ${dotY}px)`;
-                cursorOutline.style.transform = `translate(${outlineX}px, ${outlineY}px)`;
+                    cursorDot.style.transform = `translate(${dotX}px, ${dotY}px)`;
+                    cursorOutline.style.transform = `translate(${outlineX}px, ${outlineY}px)`;
 
-                requestAnimationFrame(animateCursor);
-            };
+                    requestAnimationFrame(animateCursor);
+                };
 
-            window.addEventListener('mousemove', (e) => {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
-            });
+                window.addEventListener('mousemove', (e) => {
+                    mouseX = e.clientX;
+                    mouseY = e.clientY;
+                });
 
-            animateCursor();
-
-            // Hero Particles Effect
-            const canvas = document.getElementById('hero-canvas');
-            const ctx = canvas.getContext('2d');
-            let particles = [];
-            let animationFrameId;
-
-            const resizeCanvas = () => {
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight;
-            };
-
-            class Particle {
-                constructor(x, y) {
-                    this.x = x;
-                    this.y = y;
-                    this.size = Math.random() * 2 + 0.5;
-                    this.speedX = Math.random() * 0.5 - 0.25;
-                    this.speedY = Math.random() * 0.5 - 0.25;
-                }
-                update() {
-                    this.x += this.speedX;
-                    this.y += this.speedY;
-                    if (this.size > 0.2) this.size -= 0.01;
-                }
-                draw() {
-                    ctx.fillStyle = 'rgba(233, 69, 96, ' + this.size/2 + ')';
-                    ctx.beginPath();
-                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                    ctx.fill();
-                }
+                animateCursor();
             }
 
-            const createParticles = (e) => {
-                if (e) {
+            if (window.matchMedia('(min-width: 769px)').matches) {
+                const canvas = document.getElementById('hero-canvas');
+                const ctx = canvas.getContext('2d', { alpha: true });
+                let particles = [];
+                let animationFrameId;
+
+                const resizeCanvas = () => {
+                    canvas.width = window.innerWidth;
+                    canvas.height = window.innerHeight;
+                };
+
+                class Particle {
+                    constructor(x, y) {
+                        this.x = x;
+                        this.y = y;
+                        this.size = Math.random() * 2 + 0.5;
+                        this.speedX = Math.random() * 0.5 - 0.25;
+                        this.speedY = Math.random() * 0.5 - 0.25;
+                    }
+                    update() {
+                        this.x += this.speedX;
+                        this.y += this.speedY;
+                        if (this.size > 0.2) this.size -= 0.01;
+                    }
+                    draw() {
+                        ctx.fillStyle = `rgba(233, 69, 96, ${this.size / 2})`;
+                        ctx.beginPath();
+                        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                        ctx.fill();
+                    }
+                }
+
+                const createParticles = (e) => {
                     const rect = canvas.getBoundingClientRect();
                     const x = e.clientX - rect.left;
                     const y = e.clientY - rect.top;
                     for (let i = 0; i < 5; i++) {
                         particles.push(new Particle(x, y));
                     }
-                }
-            };
-            
-            const handleParticles = () => {
-                for (let i = 0; i < particles.length; i++) {
-                    particles[i].update();
-                    particles[i].draw();
-                    if (particles[i].size <= 0.2) {
-                        particles.splice(i, 1);
-                        i--;
-                    }
-                }
-            };
+                };
 
-            const animateParticles = () => {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                handleParticles();
-                animationFrameId = requestAnimationFrame(animateParticles);
-            };
-            
-            window.addEventListener('resize', resizeCanvas);
-            resizeCanvas();
-            animateParticles();
-            
-            // Generate particles on mouse move over the hero section
-            const heroSection = document.querySelector('main');
-            heroSection.addEventListener('mousemove', createParticles);
+                const handleParticles = () => {
+                    for (let i = particles.length - 1; i >= 0; i--) {
+                        particles[i].update();
+                        particles[i].draw();
+                        if (particles[i].size <= 0.2) particles.splice(i, 1);
+                    }
+                };
+
+                const animateParticles = () => {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    handleParticles();
+                    animationFrameId = requestAnimationFrame(animateParticles);
+                };
+
+                window.addEventListener('resize', resizeCanvas);
+                resizeCanvas();
+                animateParticles();
+
+                document.querySelector('main').addEventListener('mousemove', createParticles);
+            }
         });
     </script>
 </body>
